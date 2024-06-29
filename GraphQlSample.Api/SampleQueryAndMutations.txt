@@ -1,0 +1,57 @@
+Simple mutation:
+mutation {
+  addUser(input: { name: "Ehsan" }){
+    user {
+      id
+      name
+    }
+  }
+}
+-------------
+Simple query:
+query{
+    users{
+        id,
+        name
+    }
+}
+-------------
+Get with relation:
+query{
+    users{
+        id,
+        name,
+        articles{
+            id
+            like
+            title
+        }
+    }
+}
+-------------
+Filter by Id:
+query{
+    users(where:{id:{eq:1}}) {
+        id,
+        name,
+        articles{
+            id
+            like
+            title
+        }
+    }
+}
+--------------
+Order by Id in query
+query{
+    users(order: {id:DESC}) {
+        id,
+        name,
+        articles{
+            id
+            like
+            title
+        }
+    }
+}
+--------------
